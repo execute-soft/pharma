@@ -1,19 +1,32 @@
 import "./App.css";
-import { BackgroundBlobs } from "@/components/BackgroundBlobs";
-import { MedCrossPattern } from "@/components/MedCrossPattern";
-import { BrandPanel } from "@/components/BrandPanel";
-import { LoginCard } from "@/components/LoginCard";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Landing from "@/pages/Landing";
+import DashboardLayout from "@/layouts/DashboardLayout";
+import DashboardHome from "@/pages/pharma/DashboardHome";
+import Inventory from "@/pages/pharma/Inventory";
+import Customers from "@/pages/pharma/Customers";
+import Analytics from "@/pages/pharma/Analytics";
+import Settings from "@/pages/pharma/Settings";
+import InventoryAlerts from "@/pages/pharma/InventoryAlerts";
+import CustomerSegments from "@/pages/pharma/CustomerSegments";
 
 function App() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-cyan-50 via-white to-emerald-50 dark:from-cyan-950 dark:via-gray-950 dark:to-emerald-950">
-      <BackgroundBlobs />
-      <MedCrossPattern />
-      <div className="relative z-10 grid min-h-screen items-stretch lg:grid-cols-2">
-        <BrandPanel />
-        <LoginCard />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/pharma" element={<DashboardLayout />}>
+          <Route index element={<DashboardHome />} />
+          <Route path="inventory" element={<Inventory />} />
+          <Route path="inventory/alerts" element={<InventoryAlerts />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="customers/segments" element={<CustomerSegments />} />
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

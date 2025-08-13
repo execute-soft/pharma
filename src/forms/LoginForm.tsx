@@ -27,14 +27,12 @@ export default function LoginForm({}: Props) {
     }
   };
 
-  const isDevelopment = process.env.NODE_ENV === "development";
-
   return (
     <Formik
       validationSchema={validationSchema}
       initialValues={{
-        email: isDevelopment ? "tutorsplancorp@gmail.com" : "",
-        password: isDevelopment ? "superadmin@2025" : "",
+        email: "",
+        password: "",
       }}
       onSubmit={handleSubmit}
     >

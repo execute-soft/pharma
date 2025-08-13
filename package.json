@@ -10,7 +10,9 @@
     "tauri": "tauri",
     "tauri:build": "tauri build",
     "tauri:build:mac": "tauri build",
-    "tauri:build:mac:universal": "tauri build -- --target universal-apple-darwin",
+    "tauri:build:mac:arm64": "tauri build -- --target aarch64-apple-darwin",
+    "tauri:build:mac:x64": "tauri build -- --target x86_64-apple-darwin",
+    "tauri:build:mac:both": "npm run tauri:build:mac:arm64 && npm run tauri:build:mac:x64",
     "tauri:build:win": "tauri build -- --target x86_64-pc-windows-msvc"
   },
   "dependencies": {
@@ -36,6 +38,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hot-toast": "^2.5.2",
+    "react-router-dom": "^6.30.1",
     "rsuite": "^5.83.3",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
