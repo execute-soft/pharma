@@ -152,9 +152,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           {/* Top toolbar */}
           <header className="flex h-14 items-center justify-between gap-2 border-b bg-background/70 backdrop-blur px-3">
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="icon" onClick={() => setCollapsed((v) => !v)} aria-label="Toggle sidebar">
-                {collapsed ? <ChevronsRight className="h-4 w-4" /> : <ChevronsLeft className="h-4 w-4" />}
-              </Button>
               <span className="text-sm font-medium">Pharma Dashboard</span>
             </div>
             <div className="flex items-center gap-2">
